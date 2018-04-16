@@ -40,47 +40,86 @@ public class UserInput {
     
     //Create Scanner object
     Scanner input = new Scanner(System.in);
+    char ans;
+    do{
+      System.out.println("Enter choice");
+      int choice = input.nextInt();
+      switch (choice) 
+      {
+        case 1: /** for strings  **/
+                //Output the prompt for user input
+                System.out.println("Enter a line");
+
+                //Command to let user enter a line of text
+                String line = input.nextLine();
+
+                //Print the input received
+                System.out.println("Text received is: " + line);
+                break;
+
+        case 2: /** for integer**/
+                System.out.println("Enter a integer");
+                int Num = input.nextInt();
+                System.out.println("Value received is: " + Num);
+                break;
+
+        case 3: /** for double **/
+                System.out.println("Enter a double");
+                double doubleNum = input.nextDouble();
+                System.out.println("Value received is: " + doubleNum);
+
+                /** since here we do not have break statement, the next case 
+                 * will be executed as well no matter the next case is chosen 
+                 * or not 
+                 */
+
+        case 4: /** for float **/
+                System.out.println("Enter a floating point number");
+                float floatNum = input.nextFloat();
+                System.out.println("Value received is: " + floatNum);
+                break;
+
+        default: System.out.println("Wrong choice");
+      }
+      
+      System.out.println("Do you wish to continue?");
+      ans = input.next().charAt(0);
+      
+    } while (ans == 'y' || ans == 'Y');
     
-    /** for strings  **/
-    //Output the prompt for user input
-    System.out.println("Enter a line");
-    
-    //Command to let user enter a line of text
-    String line = input.nextLine();
-    
-    //Print the input received
-    System.out.println("Text received is: " + line);
-    
-    
-    /** for integer**/
-    System.out.println("Enter a integer");
-    int Num = input.nextInt();
-    System.out.println("Value received is: " + Num);
-    
-    /** for float **/
-    System.out.println("Enter a floating point number");
-    float floatNum = input.nextFloat();
-    System.out.println("Value received is: " + floatNum);
-    
-    /** for double **/
-    System.out.println("Enter a double");
-    double doubleNum = input.nextDouble();
-    System.out.println("Value received is: " + doubleNum);
   }
   
 }
 
 /* output
+Enter choice
+1
 Enter a line
 Today is Monday.
 Text received is: Today is Monday.
+Do you wish to continue?
+y
+Enter choice
+2
 Enter a integer
-27
-Value received is: 27
+45
+Value received is: 45
+Do you wish to continue?
+y
+Enter choice
+3
 Enter a floating point number
 27.729
 Value received is: 27.729
 Enter a double
 27.7299
 Value received is: 27.7299
+Do you wish to continue?
+y
+4
+Enter a double
+27
+Value received is: 27.0
+Do you wish to continue?
+n
  */
