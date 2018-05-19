@@ -46,16 +46,17 @@ Now, when writing the graphics code in C or C++, initialize graphics files in Ub
 int gd,gm=VGAMAX; gd=DETECT;
 initgraph(&gd,&gm,NULL);
 ``` 
-In Windows, NULL is replaced by path/to/the/BGI file which is usually written as:
+In Windows, NULL is replaced by path/to/the/BGI file which is written, for instance, as:
 ```bash
 int gd,gm=VGAMAX; gd=DETECT;
-initgraph(&gd,&gm,"C://TC/BIN/BGI");
+initgraph(&gd,&gm,"C://TC/BGI");
 ``` 
+The path/to/the/BGI shall differ for each system and hence, the path unique to the system must be entered.
 
 Now to compile the code with gcc compiler and then run it, execute the following commands in shell.
 We are taking example of smile.c graphics file
 ```bash
-$ gcc smile.c -o smle -lgraph
+$ gcc smile.c -o smile -lgraph
 $ ./smile
 ```
 
