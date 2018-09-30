@@ -1,0 +1,33 @@
+\appendix
+\begin{appendices}
+\chapter{JavaScript}
+\label{app:javascript}
+Released in mid 1996 by NetScape, Netscape 2 offered totally new advances, the most essential of which were frames and JavaScript. JavaScript was a programming language written by Brendan Eich that could be installed in Web pages and could process numbers and change the substance of structures. While being developed, it had been known as Mocha then LiveWire then LiveScript, and finally JavaScript on close resemblance of its core script syntax to Java.\par \medskip
+JavaScript was chosen to be produced alongside Java in alliance of NetScape and Sun Microsystems to thump the competition laid by Microsoft at the time. At first, JavaScript did not offer the same number of features as it does today, consequently Sun did not consider it as an opposition for Java that time. The manner in which it referenced structures, connections and grapples as offspring of the record protest, and contributions as offspring of their parent shape wound up known as the DOM level 0. \par \medskip
+That year, Netscape passed their JavaScript to the European Computer Manufacturers Association (ECMA) for institutionalization. The ECMA delivered the ECMAscript standard, which encapsulated the JavaScript center language structure, however did not indicate all parts of the DOM level 0. Soon after, with the arrival of Netscape 3, came JavaScript 1.1 by NetScape, which could likewise change the area of pictures, expediting an influx of Web pages that utilized this most prevalent effect, rolling out different pictures when the mouse hovered on them. The pictures were additionally referenced as offspring of the document object and therefore the DOM level 0 was finished.\par
+
+\chapter{React Native}
+\label{app:ReactNative}
+
+React Native is a framework that relies on React Core. Hence, React and React Native have similar paradigms. React Native allows developers to build native mobile apps for iOS and Android using only JavaScript without having to code separately for each.\par
+
+\subsubsection{How does it work?\\How are we able to run JavaScript on mobile devices?}
+
+First, the JavaScript is bundled from a bunch of different files. Just like in React, JavaScript is transpilaged from ES6, ES7, ES-next, down to ES5 code, and it's also minified. There are separate threads for UI layout and JavaScript. In case of browser, if we're running JavaScript and it locks up, then it stops working. On the other hand, in React Native there are separate threads for the UI layout and JavaScript communicating to each other via a bridge.
+For instance, JavaScript thread requests the UI elements to be shown, the UI thread would work even if the JavaScript thread is blocked. And these different threads communicate asynchronously through a bridge.
+
+\section{Difference in React Native and React Web}
+\begin{enumerate}
+    \item Base components like div, span, p, image are accessible in React Web from the beginning, while there is a need to import the React Native's base components from the React Native library
+    \item <View>, a cross-platform, blank E-Y slate in React Native is used instead of <div>
+    \item <Text>, wraps all the text written in React Native, instead of <span> or <p>
+    \item <Button> with a different API, instead of <button> 
+    \item on-press handler for <Button> is used in React Native, while on-click handler for <button>  is used in React Web
+    \item title handler for <Button> is used instead of wrapping around text to the <button> tag
+    \item Scroll Views and Lists don't really exist in React Web while they do in React Native.
+    \item <Scroll Views> replaces lists, ordered and unordered lists from React Web as they do not exist in React Native. This helps as there is no definite size of lists usually known and is safe to consider it to be extremely long.
+    \item render does not exist in React Native
+... and many more which can be referred to from its documentation.
+\end{enumerate}
+
+\end{appendices}

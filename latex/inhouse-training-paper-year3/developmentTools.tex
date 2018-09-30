@@ -1,0 +1,81 @@
+\chapter{Development Tools}
+\label{chap:devTools}
+\begin{epigraphs}
+\qitem{\textquotedblleft Make software that you want to use and that you would want to use often. As long as you are making something that you want to use, then your heart will be in it.\textquotedblright}%
+      {Cabel Sasser, Sink or Swim, SXSW 2006}.
+\end{epigraphs}
+This chapter gives a full fledged description of the development environment setup used for coding the ASET ALiAS Native App. Since development started from scratch, a lot of research went in deciding which programming language, Software Development Kit, platform \emph{etc.} needs to be used to achieve the desired product. So here is a bottom up listing of the tools used along with the arguments which explain out the details of each choice.
+
+\section {Operating System}
+There was little to no dilemma in the selection of the operating system to choose to work on. After being a supporter, promoter and a user of the Open Source Software for over two years and being well aware of its prestige, it was natural for me to pick Linux as the development platform and since Ubuntu 16.04 LTS was dual booted along with Windows 8.1 on my system, development took place on Linux for its larger capabilities to get work done over Microsoft Windows. 
+
+\subsection{A brief introduction to GNU/Linux}
+Linux is a kernel created by a Finnish computer science graduate student Linus Torvalds about two decades ago in the summer of 1991. This kernel is like a well cooked food by its chef Linus and its spice is a full suite of open source applications developed under the umbrella of the Free Software Foundation for a UNIX like operating system that were ported to run on Linux. From starting with early days of computer on high end servers to the present day of android smart phones and wearable, the GNU/Linux system has developed into a robust and reliable environment for software to be built upon for a widespread user space. \bigskip
+
+The reasons for choosing a GNU/Linux distribution can be summarized in the following points:
+\begin{enumerate}
+  \item Its Free and Open Source feature eliminates the cost of purchasing a software's license.
+  \item Rich Documentation - makes the platform ideal for development.
+  \item Community support over the Mailing Lists and IRC from eminent and active members of Various Linux User Groups.
+  \item Robustness and immunity towards computer viruses.
+  \item Urge to learn, efficient use of a good Operating System that allows manual configuration from its core to the most extended feature. There is this good old saying, one cannot learn to swim without jumping into water, one cannot learn the intricacies of the development environment without configuring its details manually. 
+\end{enumerate}
+Ubuntu 16.04 LTS is a Linux distribution under the Debian organization. I have been developing most of my software on this distro or Linux Desktops, hence it became my primary workstation operating system. 
+
+\section {Text Editor}
+Primarily, software developers resort to intuitive Integrated Development Environments like NetBeans, Eclipse etc. for keying in the source code but my choice rested on a well known powerful yet simple, open source text editor, \textbf{Atom}. Atom, was developed by Richard Stallman, the Founder of Free Software Foundation himself. Again as any other popular open source application, even Atom has a long list of contributors who have enhanced it with various exciting features. Following were the predicates which led to the use of Emacs:
+\begin{enumerate}
+  \item \textbf{It is Free Software}: Which means it is not only free for use but also free for modification and sharing. And no expensive licence were to be purchased before becoming legally authorized to use it.
+  \item \textbf{Ease in Collaboration}: Teletype for Atom is a package used for collaboration among team members and hence allows real-time editing together.
+  \item \textbf{GitHub for Atom}: This package assists a programmer to directly use git repositories and its associated functions like pull, push, merge, clone from this text-editor  itself. Aiding the programmer to save time by increased self and system's speed.
+  \item \textbf{Personal Comfort Factor}: A personal preference does not need any justification.
+  \item \textbf{Multiple panes}: Atom allows the programmer to split the text editor into multiple windows to work on the system much more efficiently and helps in comparing codes or texts in different files.
+\end{enumerate}
+
+\section {Programming Language}
+\label{sec:javascript}
+\smallskip
+{\textquotedblleft A good programmer is not one who is comfortable with the constructs of a programming language and sticks to it no matter what the project demands, but one who is agile and uses a language that is appropriate for project at hand, regardless of whether he has been completely oblivious to its existence till then. Anybody with average programming skills can get acquainted to the constructs of a new programming language by playing with it for a few hours.\textquotedblright \ by a senior member of Linux User Group of Delhi}\par \bigskip 
+These words time and again help me make the right decision at the right time. Until I recalled this quote, I had tried to take up python as it is the language I am most comfortable to write with currently. The words have helped me find my beloved library based on JavaScript.\par \medskip
+Apart from the desire to free myself from the unconscious need to stick myself to work with a particular language, following led to its selection:
+\begin{enumerate}
+\item \textbf{Speed}: Client-side JavaScript is very fast because it runs promptly within the client-side browser and has no need to be compiled. JavaScript is unhindered by network calls to a back-end server unless there is a requirement of outside resources to be used.
+\item \textbf{Frameworks}: There is a wide array of amazing third-party frameworks which help programmers to get more with less code but also make it difficult to choose from, \emph{in a good way}.
+\item \textbf{Straightforwardness}: JavaScript is generally easy to learn and actualize.
+\item \textbf{Popularity}: JavaScript is omnipresent on the web, and hence the assets to learn JavaScript is varied. Stack Overflow and GitHub have numerous activities that are utilizing JS which has been gaining huge traction in the industry recently.JavaScript plays pleasantly with other languages and can be utilized as a part of a tremendous assortment of applications and scripts. JavaScript can be embedded into any website page irrespective of the file type. 
+\item \textbf{Inter-operable}: JavaScript plays pleasantly with other languages and can be utilized as a part of a tremendous assortment of applications and scripts. JavaScript can be embedded into any website page irrespective of the file type. 
+\item \textbf{Server Load}: Coding mostly on client-side reduces a lot of the demand on the website server hence saving server load and hence the cost of the software.
+\item \textbf{Versatility in Use case}: JavaScript is used in various use cases such as front-end designing or client-side development, server-side or back-end development, web and mobile app development of native as well as hybrid type.
+\item \textbf{Regular updates}: After the arrival of ES5 version JS, ECMA has started launching annually newer versions of ES5, that is ES6, etc. \ref{sec:ecma}
+\end{enumerate}
+
+For an Introduction to JavaScript and how it came to exist refer to appendix \ref{app:javascript}.
+
+\subsection {ECMAScript}
+\label{sec:ecma}
+ECMAScript is basically the spec for the JavaScript language. It means that ECMAScript defines exactly what JS language should do and how much of these functions behave.
+It can also be hence said that JavaScript is actually an implementation of ECMAScript spec. Every year a new version of this spec comes from resulting in existence of ES5, ES6, 2016, 2017, ES-Next, etc.
+
+\subsubsection{Which of its versions are supported by the environments?}
+While new versions are a boon for any technology, this also serves as a bane for all JS programmers.  The bane is because of the uncertainty of not knowing in which environment the code will run. Henceforth, what is exactly supported remains unknown. To solve this, it is assumed as a convention that the environment supports he entirety of ES5.
+
+\subsubsection{Transpilers}
+A transpiler is some code that makes newer language features backward compatible with the ES5 spec. That is, the transpiler takes all of your new language, any functions you are using that is defined by ES6, ES2016 and beyond, and transforms them into code that's essentially ES5 code. So some of these are TypeScript, CopyScript, and the most prevalent one is presumably Babble. This allows the programmers to use the future syntax which either the language or the environments will catch up with, or would just transpile back to ES5.
+
+\section {Framework}
+\label{sec:ReactNative}
+\begin{epigraphs}
+\qitem{You can learn once and write everywhere.}%
+      {React team}.
+\end{epigraphs}
+Programmers are inherently lazy which is why they create tools which can be reused by themselves and others too. It is these tools that we call libraries, tool kits, frameworks etc, which is nothing but efficient code for elementary tasks like connecting to server, drawing a button on the screen etc. Python has a very rich set of third-party Frameworks, i.e frameworks which have been created by people other than the core Python development team. For the problem at hand the following were taken into consideration for the file sharing application at hand.\par \bigskip
+\textbf{React Native}: framework for building native, cross-platform mobile applications
+  \begin{enumerate}
+  \item The code is written solely in JavaScript
+  \item There exists no need to individually develop native apps for different platforms like iOS and Android, same source code works on both. It is just when the source code needs to be built into a full fledged app that needs to be done individually
+  \end{enumerate}
+For an  introduction to React Native refer to appendix \ref{app:ReactNative}.
+
+\section{Source Code Management}
+\label{sec:git}
+Source Code Management or SCM is a very important aspect of software development. SCMs support version controlled systems that help any organization, small or large, automatically maintain the various versions created or edited of a project chronologically which can be easily used later on to pin point the cause of a particular bug. At such situations, the programmer can easily revert back to the most stable version of the software code. The three most prevalent or widely used SCMs are namely \textbf{git}, \textbf{mercurial} and \textbf{svn}. Git turned out to be my obvious preference due to my certain level of expertise as compared to the other two after working on various projects. In present times, a person needs to be \emph{jack of all trades \textbf{and} master of one}. Git also helped in maintaining a summary of each code change via commit messages, organizing the code well and hence, making it easier for any new programmer to join the development process.
