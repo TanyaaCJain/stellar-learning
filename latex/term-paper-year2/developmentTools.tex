@@ -1,0 +1,125 @@
+\chapter{Materials and Methods}
+\label{chap:devTools}
+\begin{epigraphs}
+\qitem{Make software that you want to use and that you would want to use often. As long as you are making something that you want to use, then your heart will be in it.}%
+      {Cabel Sasser, Sink or Swim, SXSW 2006}.
+\end{epigraphs}
+This chapter gives a full fleged description of the development environment setup used for coding the File Sharing and Syncing Application. Since development started from scratch, a lot of research went in deciding which programming language, Software Developement Kit, platform \emph{etc.} to use. So here is a bottom up listing of the tools used along with the arguments which illustrated why they were chosen.
+
+\section {Operating System}
+Truthfully, there was very less dilemma in operating system selection. Being a supporter and promoter of the use of Open Source Softwares, it was natural that Linux would be the platform and since Kubuntu 10.10 was installed on my system, development took place on it. Now, a brief introduction to GNU/Linux is due. As far as Linux is concerned, it is just a kernel created by a finnish computer science graduate student Linus Torvalds about two decades ago in the summer of 1991. The magic began when, a full suite of open source applications developed under the umbrella of the Free Software Foundation for a UNIX like operating system were ported to run on Linux. Over the years, the GNU/Linux system has developed into a robust and reliable environment for computers ranging from high end servers to handheld devices (The Android Phones).
+The reasons for choosing a GNU/Linux distribution can be summarised in the following points:
+\begin{enumerate}
+  \item It is Free and Open Source - thus eliminating the cost of license.
+  \item Rich Documentation - makes the platform ideal for development.
+  \item Community support over the Mailing Lists from eminient and active members of Various Linux User Groups.
+  \item Robustness and immunity towards computer viruses.
+  \item Urge to learn, efficient use of a good Operating System.
+\end{enumerate}
+However, the Kubuntu 10.10 just happened to be the platform because all hardware of my workstation laptop were working fine under its watch and it was being used as the primary operating system. In order to get an idea of what is meant by the various flavours of Linux Desktops, also called \emph{distros} please refer to appendix \ref{app:linux}.
+
+\section {Text Editor}
+Primarily, software developers resort to intuitive Integrated Development Environments like NetBeans, Eclipse etc. for keying in the source code but my choice rested on a well known powerful yet simple, open source text editor, \textbf{Emacs}. Emacs, was developed by Richard Stallman, the Founder of Free Software Foundation himself. Again as any other popular open source application, even Emacs has a long list of contributors who have enhanced it with various exciting features. Following were the predicates which led to the use of Emacs:
+\begin{enumerate}
+  \item \textbf{It is Free Software}: Which means it is not only free for use but also free for modification and sharing. And no expensive lisence were to be purchased before becoming legally authorised to use it.
+  \item \textbf{Automatic Indentation}: As we will see in the section \ref{sec:python}, that indentation is not only a good programming practice, but also crucial for programming in python. And when an editor eliminates the need for a programmer to consciously keep track of the indentation, more attention can be paid to the logic which leads to increase in effinciency.
+  \item \textbf{Personal Comfort Factor}: A personal preference does not need any justification.
+  \item \textbf{Good for learning}: Since Emacs is primarily just a text editor, it does nothing more than what it is supposed to do. Which means, unlike the popular Integrated Development Environments or IDEs it does not configure anything for the programmer, leaving him in full control. Although this approach may feel counter productive to experienced programmer, but it is not. Similar to the good old saying, one cannot learn to swim without jumping into water, one cannnot learn the intricacies of the development environment without configuring its details manually. 
+\end{enumerate}
+
+\section {Programming Language}
+\label{sec:python}
+A senior member of Linux User Group of Delhi once said that a good programmer is not one who is comfortable with the constructs of a programming language and sticks to it no matter what the project demands, but one who is agile and uses a language that is appropriate for project at hand, regardless of whether he has been completely oblivious to its existence till then. Anybody with average programming skills can get acquainted to the constructs of a new programming language by playing with it for a few hours. 
+With these words in mind the hunt for a language which would make the development process most productive began. The options considered were C++, Java and Python with the latter being the outcome. Apart from the desire to learn a fantastic new language, following led to its selection:
+\begin{enumerate}
+\item \textbf{Python is powerful}: A computer programming language is considered powerful, when a lot can be achieved with less number of lines of code. And clearly, it was the case with python. The constructs of the language are elegant, features are excellent and support is awesome.
+\item \textbf{Frameworks}: There is a wide array of amazing third-party frameworks which help programmers to get more with less code but also make it difficult to choose from, \emph{in a good way}.
+\item \textbf{Beautiful}: Every newcomer in the world of python wonders, how can a programming langauge be beautiful? Its just a tool afterall! But Python is, and the primary reason is the use of indentation instead of braces and semicolons for marking the end of code blocks and statements. In most of the languages programmes can be written in a single line but Python makes it mandatory to indent the code properly thus making the code very much readable.
+\item \textbf{Garbage Collection}: It had been a real pain to ensure garbage collection while developing network applications in C++ earlier. Since, Python takes care of memory allocation and garbage collection, on its own, behind the scene, Programmers can concentrate on their aim instead of debugging Segmentation Faults.
+\end{enumerate}
+
+\section {Framework}
+\label{sec:PyQt}
+Programmers are inherently lazy which is why they create tools which can be reused by themselves and others too. It is these tools that we call libraries, toolkits, frameworks etc, which is nothing but efficient code for elementary tasks like connecting to server, drawing a button on the screen etc. Python has a very rich set of third-party Frameworks, i.e frameworks which have been created by people other than the core Python development team. For the problem at hand the following were taken into consideration for the file sharing application at hand.
+\begin{enumerate}
+\item \textbf{PyNet}: Python Networking library.
+  \begin{enumerate}
+  \item It is a basic set of functions for elementary socket programming.
+  \item Its use would have required the application being developed to also have lengthy code dedicated to managing sockets and listening on ports besides its basic logic.
+  \end{enumerate}
+
+\item \textbf{Twisted}: A framework for creating network applications in Python. Its analysis revealed the following:
+  \begin{enumerate}
+  \item It follows asynchronous programming model which is best for network applications.
+  \item A lot many successful web applications use it in their core architecture.
+  \item Its callback approach would take a while to get accustommed with.
+  \item Time constraint on project was not in favour of Twisted.
+  \end{enumerate}
+
+\item \textbf{PyRO}: Python Remote Objects Framework
+  \begin{enumerate}
+  \item Good for developing distributed network applications.
+  \item It could have been a good choice for the project if the application was to ultimately follow pure peer to peer communication model without the need of any central tracking system.
+  \item Also, its constructs would have taken a while to learn and time was less.
+  \end{enumerate}
+
+For an Introduction to Qt and PyQt refer to appendix \ref{app:qt} and \ref{app:pyqt} respectively.
+\item \textbf{PyQt}: Python wrapper for Qt Toolkit by Riverbank Computing.
+  \begin{enumerate}
+  \item Brings the goodness of Qt to Python. 
+  \item Has excellent documentation and community support on \#pyqt and \#qt IRC channels.
+  \item No learning curve involved, as I was already adept to Qt.
+  \end{enumerate}
+\item \textbf{PySide}: Python wrapper for Qt by Nokia.
+  \begin{enumerate}
+  \item Aims to achieve the same goal as PyQt.
+  \item Has lesser support and acceptance in the community compared to PyQt.
+  \end{enumerate}
+\end{enumerate}
+So Naturally, the final choice rested on PyQt. The goodness of Python combined with Python, not only made the coding process extremely efficient by eliminating the need to worry about things like Segmentation Faults and coding for low level socket programming but also very exciting.
+
+\section{Interpreter}
+Although the program was written in Emacs, an excellent interactive interpreter called \textbf{bpython} came to the rescue everytime there was an ambiguity with a feature or construct of Python or PyQt. bPython sports a fancy interface with following very useful features:
+\begin{enumerate}
+\item In-line syntax highlighting.
+\item Readline-like autocomplete with suggestions displayed as you type.
+\item Expected parameter list for any Python function.
+\item Auto-indentation.
+\end{enumerate}
+
+\section{Source Code Management}
+\label{sec:git}
+Source Code Management or SCM is a very important aspect of software development. Small applications developed for academic purposes do not need it but for a larger application with a hundreds or thousands of lines of code undeniably requires an SCM in place. There are three SCMs namely \textbf{git}, \textbf{mercurial} and \textbf{svn} which are widely used. I had scarcely used git earlier and had no previous experiece with mercurial or svn. The obvious choice was git as it would lead to developing some level of expertise in one of them. In present times, a person needs to be \emph{jack of all trades \textbf{and} master of one}. A project like the one at hand was ideal for learning with \hyphenation{hands-on}. And indeed using git did achieve the aim, besides being the rescuer at many instances. Eg, once some changes made to the source code broke it considerably and nothing seemed to work. Using git, the source code was reverted to a previous state where things seemed to work and detect the cause of error, thus helping in debugging and bringing everything back on track.
+
+\section{Theorems}
+
+\subsection{Conditional Probability}
+Probability is understood as the likelihood for the validity or truthness in a matter. It is represented by a number in the vicinity of 0 and 1 (both inclusive) that speaks to a level of faith in a reality or expectation. The value 1 convicts a reality or a fact is valid, or that an expectation will work out. The value 0 assures that the certainity of the matter is false.
+
+\subsection{Bayes Theorem}
+Let there be two independent events $A$ and $B$
+Hence, thir complements will be represented as $A^c$ and $B^c$ respectively.
+where $P(A^c) = 1 - P(A)$ and $P(B^c) = 1 - P(B)$
+We know,
+$$P(A and B) = P(B and A)$$
+According to conjoint probability,
+$$P(A and B) = P(A)P(B|A)$$
+and
+$$P(B and A) = P(B)P(A|B)$$
+Which on comparison, leads us to the following equation:
+$$P(B)P(A|B) = P(A)P(B|A)$$
+Hence, we get to the Bayes's Theorem:
+\begin{equation} \label{eq1}
+P(A|B) = \frac{P(A)P(B|A)}{P(B)}
+\end{equation}
+This equation is equivalent to saying that the probability of an event $A$ to occur, given that the event $B$ has already taken place, is the product of probability of event $A$ to occur and the probabilty of event $B$ to occur given that the event $A$ has already taken place, divided by the probability of event $B$ to occur.
+
+Also, the the Bayes Theorem can also be wriiten as:
+\begin{equation} \label{eq2}
+P(A|B) = \frac{P(A)P(B|A)}{P(A)P(B|A) + P(A^c)P(B|A^c)}
+\end{equation}
+
+
+\subsection{The Diachronic Interpretation}
+
+

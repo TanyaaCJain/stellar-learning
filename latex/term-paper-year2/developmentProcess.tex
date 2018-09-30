@@ -1,0 +1,86 @@
+\chapter{The Development Process and its Product}
+\begin{epigraphs}
+  \qitem{Talk is cheap, show me the code.}
+        {Linus Torvalds, Linux Kernel Mailing List}
+\end{epigraphs}
+\label{chap:devProc}
+While the previous chapter concentrated on the tools used for developing FShaSycApp, this chapter gives an account on how those tools were used to achieve the goals of the project.
+
+\section{First Step and beyond}
+As has been noted by various philosophers, all it takes to get started is the first step. So when it came to creating FShaSycApp, a large chunk of initial time was spent in deciding the right tools (refer to chapter \ref{chap:devTools}), reading their documentation, reading about softwares which have tried and achieved the same goal as the project at hand, and also finding what they have been able to do and trying to find where FShaSycApp could make a difference. It was fun to read and interesting to find intriguing details about people who have done notable deeds. eg Wikipedia article on Andrew Tridgell, the creator of RSync,  mentioned that it because of his meddling with Bit Keeper, an SCM used by Linus Torvalds which facilitated the hosting and collaboration on the Linux Kernel project, that Linus wrote his own SCM called git. \par
+It took a lot of reading and scribbling to reach the conclusion of first trying to make a basic working model and then go on adding more functionalities as time permits. So in a couple of days, a system which was able to send text from one terminal to another was ready. It was followed by another which converted binary data to text using the base64 algorithm. Then came another which transmitted the base64 string and decoded it on other end which was written to disk. And gradually it reached a state where it could monitor the contents of a directory and replicate any changes made into it to other connected computer(s). This was further incremented to include the whole directory tree inside the directory being monitored. The weekly schedule followed for development of the application is summarised in the table \ref{tab:schedule}.
+
+%\end{table}
+
+\section{How it all works}
+\label{sec:working}
+FShaSycApp works in a very simple fashion. There is a central server, which is supposed to be running everytime and then there are clients which connect to it. All machines on the network running an instance of the application monitors the whole structure of one directory on the machine. Whenever there is a change in the files being monitored, appropriate message is sent from the client to the server. At the server end, the changes take effect on the directory which is being monitored by it. This, in turn causes the changes to be forwarded to every client connected to it. Thus files or directories, created, deleted or modified in the folder being monitored on a machine connected to server, get replicated in the respective directories of every client connected to the server and the goal is achieved.
+\begin{figure}[h!]
+  \centering
+    \includegraphics[width=0.5\textwidth]{architecture.jpg}
+    \caption{Architecture of the setup.}
+\end{figure}
+
+So that was a layman introduction to how the application does what it says it does, now lets take a detailed look into the technical functioning of the application.
+\subsection{Packet Structure} \label{subsec:packetStructure}
+Every network application needs to communicate with its connected peers. This is achieved by the help of following a predefined data structures that travel to and fro between client and server. The packet structure of FShaSycApp is as follows:
+
+\begin{table} [h]
+  \begin{center}
+    \begin{tabular} {|| l | c ||}
+      \hline
+      \textbf{Item} & \textbf{Data Type} \\
+      \hline
+      \hline
+      Size & QUInt16 \\ 
+      \hline
+      Packet Type & QString\\
+      \hline
+      Payload & QStringList\\
+      \hline 
+      
+    \end{tabular}
+    \caption{General structure of all packets in FShaSycApp}
+    \label{tab:packetStructure}
+  \end{center}
+\end{table}
+
+Before sending data from server to client or from client to server, it is formatted in a structure shown in table \ref{tab:packetStructure}. The first field informs the recieving end about the size of packet to expect.  This field is merely two bytes long as is indicated by its data type QUInt16 (unsigned integer 16 bits long).
+
+\subsection{The different packet types}
+The application entertains three types of packets viz
+\begin{enumerate}
+\item \textbf{Messages}: These packets are transmitted whenever there is a change in monitored files / directories. All kinds of messages have been listed in the table \ref{tab:messageTypes}.
+\begin{table}[h]
+
+  \begin{center}
+    \begin{tabular} {| l | p{5cm} | l|}
+      \hline
+      \textbf{Type} & \textbf{Payload} & \textbf{Sent when }\\
+      \hline
+      m.DIRECTORY.CREATED & relative path of the created directory from the monitored directory& a directory is created\\
+      \hline 
+      m.DIRECTORY.DELETED & relative path of the deleted directory from the monitored directory & a directory is deleted\\
+      \hline
+      m.FILE.CHANGED & relative path and md5 hash of file contents & a file is created or modified\\
+      \hline
+      m.FILE.DELETED & relative path & a file is deleted\\
+      \hline
+      \end{tabular}
+    \caption{List of message types}
+    \label{tab:messageTypes}
+  \end{center}
+\end{table}
+
+\item \textbf{Request}: As of writing of this report, requests were required only for file change messages. This was obvious because for directories, the name and relative path is included in the message notification itself. This category was created with the intention of leaving scope for future requrirements when a file will be split into blocks and each block will be transmitted independently. \par
+As far as r.FILE.CHANGED request is concerned, it contains the file name and a hash of the requested file.
+\item \textbf{Data}: As of writing of this report, there is only one kind of data packet i.e d.FILE.CHANGED, which was transmitted in response to request for a file. The payload field of this field contains the relative path of the file whose data is being transmitted along with the data encoded in base64 format. Encoding binary data in base64 allows it to be transmitted as text.
+\end{enumerate}
+This particular structure was developed in order to avoid useless traffic in the network. If a system already has the updated set of files it will not request for data when it recieves the corresponding message. 
+
+\subsection{Monitoring for changes}
+\label{subsec:monitoringChanges}
+So far, the changes to directory were assumed to be obvious, but it is an important and integral part of the application. This section aims to explain how the whole directory tree is monitored which leads to notifications being sent to the peers as and when required.\par
+The task is accomplished by the help of QFileSystemWatcher class from Qt Framework. Files and directories to be monitored can be added to its list via simple method calls. Whenever a file or directory being monitored is modified or deleted corresponding Qt signal is fired. And the watcher stops monitoring the files and directories after their deletion. \par
+The problem was how to get new files and directories created in the monitored directory to be added to the watcher's list. Python's pre-defined set data structure came to the rescue in this case. QFileSystemWatcher signaled with the name of a directory whenever there was a change in its contents and also provided the list of all files and directories being monitored. So whenever a directoryChanged() signal was recieved, two sets were constructed. First one contained the relativepaths of all the files and directories in watcher's list and second one consisted of the contents of the directory for which the signal was obtianed. Now a simple set operation of subtracting the first from second, facilitated by Python, gave the entities that were newly created.
+This task, when performed recursively for directories facilitates monitoring and hence replication of whole directory tree instead of only one or some predefined directory levels.
