@@ -1,0 +1,41 @@
+\appendix
+\begin{appendices}
+\chapter{301 and 302 redirect}
+\label{redirect}
+A 301 divert implies that the page has for all time moved to another area. A 302 divert implies that the move is just brief. Web crawlers need to make sense of whether to keep the old page, or supplant it with the one found at the new area. On the off chance that the wrong sort of divert has been set up, web crawlers may wind up plainly befuddled, bringing about lost activity. 
+
+Why does this make a difference? On the off chance that you are moving a website page or a whole site to another area, for example on the off chance that you change your space name, you need guests to have the capacity to discover your webpage. A divert makes the client's program naturally forward from the old area to the better one. You may surmise that Google and the other web search tools would simply take after the sidetracks, yet that is the place things get entangled. At the point when a site moves, that can trigger the Google maturing delay. Typically the site drops out of the scan rankings for a while, some of the time even a year. We'll return to this later. 
+
+There aren't an excessive number of circumstances where a 302 is fitting. How regularly have you briefly moved a page? It's a great deal more typical to move pages for all time. By the by, it appears to be simpler to make 302 sidetracks than 301s. You can utilize Javascript or a meta tag to make a 302. Making a 301 divert requires extraordinary orders in your .htaccess document in the event that you utilize an Apache server. With Windows servers, making 301 takes much additional time and inconvenience. That is the reason there's an inclination for individuals to erroneously utilize 302 rather than 301. 
+
+Google perceives that many individuals utilize 302 when they truly mean 301. Luckily, Google isn't bound by any law to take individuals actually. For delivering the most ideal query items, Google can and should take a gander at 302s and make sense of if the website admin truly implies 302, or if it's common perplexity and they truly mean 301. 
+
+Regardless of whether Google really handles 302s appropriately is an open inquiry. In the event that a 302 is utilized rather than a 301, web search tools may keep on indexing the old URL, and carelessness the better and brighter one as a copy. Connection prominence may be separated between the two urls, harming look rankings. Web crawlers may make sense of how to deal with the 302, or they may not. Google representatives have said that they will regard a 302 as a 301 on the off chance that they think the website admin has made a blunder, yet why take a risk, and shouldn't something be said about other web crawlers? 
+
+At the point when for all time moving a site, or a page, best practice is to utilize a 301 divert. 302s in this circumstance appear to be erroneous. By saying "transitory move" a 302 advises web crawlers to keep the old space or page filed, yet it would be attractive for them to list the new area. In the past individuals have utilized 302 diverts with an end goal to dodge the Google maturing delay. This workaround may have worked sooner or later, yet it is not a present best practice. 
+
+On the off chance that worried about losing rankings due to a 301, the arrangement is not to change an area, and not to end up noticeably fiscally dependent on rankings. In this present reality, organizations abstain from changing their names since it can seem shady. Who can reprimand Google for utilizing a similar rationale: in case you're changing space names, you may be planning something sinister. How about we hold up a while and check whether you stay under control before we suggest you.
+
+
+\chapter {Continuous Distribution}
+\label{sec:Beta}
+
+\section{Beta Distribution}
+  \begin{enumerate}
+  \item This distribution takes randomly varied values between 0 and 1.
+  \item It is extensively used to model probabilities, such as the Bayesian inference.
+  \item For a random variable X,
+  \begin{equation} \label{Betaeq}
+    \begin{split}
+      X & \sim Beta(\alpha,\beta) \\
+      f(x|\alpha,\beta) & = \frac{\Gamma(\alpha+\beta)}{\Gamma(\alpha)\Gamma(\beta)}x^{\alpha-1}(1-x)^{\beta-1}I_{(0<x<1)}(x) \\
+      E[X] & = \frac{\alpha}{\alpha + \beta} \\
+      Var[X] & = \frac{\alpha \beta}{(\alpha + \beta)^2 (\alpha + \beta +1)} \\
+    \end{split}
+  \end{equation}
+  \item where $\Gamma(\item)$ is the gamma distribution's function.
+  \item $\alpha > 0$ and $\beta > 0$
+  \item For a distribution, $X ~ Beta(1,1)$, that is, $\aplha = \beta = 1$, a standard Uniform(0,1) distribution forms.
+  \end{enumerate}
+
+\end{appendices}

@@ -4,92 +4,35 @@
 \qitem{Make software that you want to use and that you would want to use often. As long as you are making something that you want to use, then your heart will be in it.}%
       {Cabel Sasser, Sink or Swim, SXSW 2006}.
 \end{epigraphs}
-This chapter gives a full fleged description of the development environment setup used for coding the File Sharing and Syncing Application. Since development started from scratch, a lot of research went in deciding which programming language, Software Developement Kit, platform \emph{etc.} to use. So here is a bottom up listing of the tools used along with the arguments which illustrated why they were chosen.
-
-\section {Operating System}
-Truthfully, there was very less dilemma in operating system selection. Being a supporter and promoter of the use of Open Source Softwares, it was natural that Linux would be the platform and since Kubuntu 10.10 was installed on my system, development took place on it. Now, a brief introduction to GNU/Linux is due. As far as Linux is concerned, it is just a kernel created by a finnish computer science graduate student Linus Torvalds about two decades ago in the summer of 1991. The magic began when, a full suite of open source applications developed under the umbrella of the Free Software Foundation for a UNIX like operating system were ported to run on Linux. Over the years, the GNU/Linux system has developed into a robust and reliable environment for computers ranging from high end servers to handheld devices (The Android Phones).
-The reasons for choosing a GNU/Linux distribution can be summarised in the following points:
-\begin{enumerate}
-  \item It is Free and Open Source - thus eliminating the cost of license.
-  \item Rich Documentation - makes the platform ideal for development.
-  \item Community support over the Mailing Lists from eminient and active members of Various Linux User Groups.
-  \item Robustness and immunity towards computer viruses.
-  \item Urge to learn, efficient use of a good Operating System.
-\end{enumerate}
-However, the Kubuntu 10.10 just happened to be the platform because all hardware of my workstation laptop were working fine under its watch and it was being used as the primary operating system. In order to get an idea of what is meant by the various flavours of Linux Desktops, also called \emph{distros} please refer to appendix \ref{app:linux}.
-
-\section {Text Editor}
-Primarily, software developers resort to intuitive Integrated Development Environments like NetBeans, Eclipse etc. for keying in the source code but my choice rested on a well known powerful yet simple, open source text editor, \textbf{Emacs}. Emacs, was developed by Richard Stallman, the Founder of Free Software Foundation himself. Again as any other popular open source application, even Emacs has a long list of contributors who have enhanced it with various exciting features. Following were the predicates which led to the use of Emacs:
-\begin{enumerate}
-  \item \textbf{It is Free Software}: Which means it is not only free for use but also free for modification and sharing. And no expensive lisence were to be purchased before becoming legally authorised to use it.
-  \item \textbf{Automatic Indentation}: As we will see in the section \ref{sec:python}, that indentation is not only a good programming practice, but also crucial for programming in python. And when an editor eliminates the need for a programmer to consciously keep track of the indentation, more attention can be paid to the logic which leads to increase in effinciency.
-  \item \textbf{Personal Comfort Factor}: A personal preference does not need any justification.
-  \item \textbf{Good for learning}: Since Emacs is primarily just a text editor, it does nothing more than what it is supposed to do. Which means, unlike the popular Integrated Development Environments or IDEs it does not configure anything for the programmer, leaving him in full control. Although this approach may feel counter productive to experienced programmer, but it is not. Similar to the good old saying, one cannot learn to swim without jumping into water, one cannnot learn the intricacies of the development environment without configuring its details manually. 
-\end{enumerate}
+This chapter gives a full fledged description of the development environment setup used for coding the Python based Baysian A/B Tester. Since development started from scratch, a lot of research went in deciding which programming language, Software Development Kit, platform \emph{etc.} to use. So here is a bottom up listing of the tools used along with the arguments which illustrated why they were chosen.
 
 \section {Programming Language}
 \label{sec:python}
-A senior member of Linux User Group of Delhi once said that a good programmer is not one who is comfortable with the constructs of a programming language and sticks to it no matter what the project demands, but one who is agile and uses a language that is appropriate for project at hand, regardless of whether he has been completely oblivious to its existence till then. Anybody with average programming skills can get acquainted to the constructs of a new programming language by playing with it for a few hours. 
-With these words in mind the hunt for a language which would make the development process most productive began. The options considered were C++, Java and Python with the latter being the outcome. Apart from the desire to learn a fantastic new language, following led to its selection:
+Python and R are the languages that were the most apt to carry out this Term Paper work. These two languages are famous for their wide range of capabilities in the User Groups communities, especially those for the Data Science analysts and Artificial Intelligence enthusiasts. These are some of my considerations while choosing the language: 
 \begin{enumerate}
-\item \textbf{Python is powerful}: A computer programming language is considered powerful, when a lot can be achieved with less number of lines of code. And clearly, it was the case with python. The constructs of the language are elegant, features are excellent and support is awesome.
-\item \textbf{Frameworks}: There is a wide array of amazing third-party frameworks which help programmers to get more with less code but also make it difficult to choose from, \emph{in a good way}.
-\item \textbf{Beautiful}: Every newcomer in the world of python wonders, how can a programming langauge be beautiful? Its just a tool afterall! But Python is, and the primary reason is the use of indentation instead of braces and semicolons for marking the end of code blocks and statements. In most of the languages programmes can be written in a single line but Python makes it mandatory to indent the code properly thus making the code very much readable.
-\item \textbf{Garbage Collection}: It had been a real pain to ensure garbage collection while developing network applications in C++ earlier. Since, Python takes care of memory allocation and garbage collection, on its own, behind the scene, Programmers can concentrate on their aim instead of debugging Segmentation Faults.
+\item \textbf{Apt for the Work}: They have the requirements needed for the completion of this project. 
+\item \textbf{Statistics and Probabilities}: It is great for analysis and calculations pertaining to the subject with numerous modules and functions defined to ease out the work with increased efficiency.
+\item \textbf{Richness in the language}: A programming language is viewed as intense, when a considerable measure can be accomplished with less number of lines of code. The develops of Python as well as R are rich in support and characteristic features. 
+\item \textbf{Lucid}: Rather than supports and semicolons for denoting the finish of code pieces and explanations, the greater part of the projects can be composed in a solitary line while making it to required to indent the code legitimately.
+\item \textbf{Great Community Support}: 
+    \begin{enumerate}
+    \item \textbf{Large engagement}: With many projects being carried out in these two languages, there is a wide number of people engaged in User Groups to provide instant help over various resources such as IRC channels.
+    \item \textbf{Constant Development}: These languages are a part of the Open Source Software culture and hence developers contributing to Open Source are there constantly improving the languages to eliminate any bugs that would exist and improve them with new features. 
+    \end{enumerate}
 \end{enumerate}
 
-\section {Framework}
-\label{sec:PyQt}
-Programmers are inherently lazy which is why they create tools which can be reused by themselves and others too. It is these tools that we call libraries, toolkits, frameworks etc, which is nothing but efficient code for elementary tasks like connecting to server, drawing a button on the screen etc. Python has a very rich set of third-party Frameworks, i.e frameworks which have been created by people other than the core Python development team. For the problem at hand the following were taken into consideration for the file sharing application at hand.
+
+\section{Python Framework}
+Software engineers are naturally sluggish which is the reason they make instruments which can be reused independent from anyone else and others as well. It is these devices that we call libraries, toolboxes, systems and so on, which is only proficient code for rudimentary undertakings like associating with server, drawing a catch on the screen and so forth. Python has an exceptionally rich arrangement of foreign Frameworks, i.e structures which have been made by individuals other than the center Python improvement group. For the current issue the accompanying were contemplated for the document sharing application nearby.
 \begin{enumerate}
-\item \textbf{PyNet}: Python Networking library.
+\item \textbf{Python SciPy library}: 
   \begin{enumerate}
-  \item It is a basic set of functions for elementary socket programming.
-  \item Its use would have required the application being developed to also have lengthy code dedicated to managing sockets and listening on ports besides its basic logic.
-  \end{enumerate}
-
-\item \textbf{Twisted}: A framework for creating network applications in Python. Its analysis revealed the following:
-  \begin{enumerate}
-  \item It follows asynchronous programming model which is best for network applications.
-  \item A lot many successful web applications use it in their core architecture.
-  \item Its callback approach would take a while to get accustommed with.
-  \item Time constraint on project was not in favour of Twisted.
-  \end{enumerate}
-
-\item \textbf{PyRO}: Python Remote Objects Framework
-  \begin{enumerate}
-  \item Good for developing distributed network applications.
-  \item It could have been a good choice for the project if the application was to ultimately follow pure peer to peer communication model without the need of any central tracking system.
-  \item Also, its constructs would have taken a while to learn and time was less.
-  \end{enumerate}
-
-For an Introduction to Qt and PyQt refer to appendix \ref{app:qt} and \ref{app:pyqt} respectively.
-\item \textbf{PyQt}: Python wrapper for Qt Toolkit by Riverbank Computing.
-  \begin{enumerate}
-  \item Brings the goodness of Qt to Python. 
-  \item Has excellent documentation and community support on \#pyqt and \#qt IRC channels.
-  \item No learning curve involved, as I was already adept to Qt.
-  \end{enumerate}
-\item \textbf{PySide}: Python wrapper for Qt by Nokia.
-  \begin{enumerate}
-  \item Aims to achieve the same goal as PyQt.
-  \item Has lesser support and acceptance in the community compared to PyQt.
+  \item It is a fundamental Python scientific library which comprises of the modules: Numpy, MatPlotlib 
+  \item It is way more compact than the functions in the standard Python library
+  \item It is widely utilised in scientific calculations and data analysis, especially for research work
+  \item The functions and modules written in these libraries ease out the work of typing the regular scientific formulas on a redundant basis.
   \end{enumerate}
 \end{enumerate}
-So Naturally, the final choice rested on PyQt. The goodness of Python combined with Python, not only made the coding process extremely efficient by eliminating the need to worry about things like Segmentation Faults and coding for low level socket programming but also very exciting.
-
-\section{Interpreter}
-Although the program was written in Emacs, an excellent interactive interpreter called \textbf{bpython} came to the rescue everytime there was an ambiguity with a feature or construct of Python or PyQt. bPython sports a fancy interface with following very useful features:
-\begin{enumerate}
-\item In-line syntax highlighting.
-\item Readline-like autocomplete with suggestions displayed as you type.
-\item Expected parameter list for any Python function.
-\item Auto-indentation.
-\end{enumerate}
-
-\section{Source Code Management}
-\label{sec:git}
-Source Code Management or SCM is a very important aspect of software development. Small applications developed for academic purposes do not need it but for a larger application with a hundreds or thousands of lines of code undeniably requires an SCM in place. There are three SCMs namely \textbf{git}, \textbf{mercurial} and \textbf{svn} which are widely used. I had scarcely used git earlier and had no previous experiece with mercurial or svn. The obvious choice was git as it would lead to developing some level of expertise in one of them. In present times, a person needs to be \emph{jack of all trades \textbf{and} master of one}. A project like the one at hand was ideal for learning with \hyphenation{hands-on}. And indeed using git did achieve the aim, besides being the rescuer at many instances. Eg, once some changes made to the source code broke it considerably and nothing seemed to work. Using git, the source code was reverted to a previous state where things seemed to work and detect the cause of error, thus helping in debugging and bringing everything back on track.
 
 \section{Theorems}
 
@@ -98,7 +41,7 @@ Probability is understood as the likelihood for the validity or truthness in a m
 
 \subsection{Bayes Theorem}
 Let there be two independent events $A$ and $B$
-Hence, thir complements will be represented as $A^c$ and $B^c$ respectively.
+Hence, their complements will be represented as $A^c$ and $B^c$ respectively.
 where $P(A^c) = 1 - P(A)$ and $P(B^c) = 1 - P(B)$
 We know,
 $$P(A and B) = P(B and A)$$
@@ -112,14 +55,102 @@ Hence, we get to the Bayes's Theorem:
 \begin{equation} \label{eq1}
 P(A|B) = \frac{P(A)P(B|A)}{P(B)}
 \end{equation}
-This equation is equivalent to saying that the probability of an event $A$ to occur, given that the event $B$ has already taken place, is the product of probability of event $A$ to occur and the probabilty of event $B$ to occur given that the event $A$ has already taken place, divided by the probability of event $B$ to occur.
+This equation is equivalent to saying that the probability of an event $A$ to occur, given that the event $B$ has already taken place, is the product of probability of event $A$ to occur and the probability of event $B$ to occur given that the event $A$ has already taken place, divided by the probability of event $B$ to occur.
 
-Also, the the Bayes Theorem can also be wriiten as:
+Also, the the Bayes Theorem can also be written as:
 \begin{equation} \label{eq2}
 P(A|B) = \frac{P(A)P(B|A)}{P(A)P(B|A) + P(A^c)P(B|A^c)}
 \end{equation}
 
 
 \subsection{The Diachronic Interpretation}
+Let $H$ and $D$ be the events representing hypothesis and data respectively.
+Hence, the derived Bayesian equation (\ref{eq1}) can be written as:
+\begin{equation} \label{eq3}
+P(H|D) = \frac{P(H)P(D|H)}{P(D)}
+\end{equation}
 
+We know that:
+\begin{enumerate}
+\item \textbf{Prior} or $P(H)$ is the probability of the hypothesis formed before the data is known. It is made via the background information, that is, the opinion and judgment conducted on various issues pertaining to the data.
+\item \textbf{Posterior} or $P(H|D)$ is the probability of the hypothesis formed after the given set of data is known.
+\item \textbf{Likelihood} or $P(D|H)$ is the probability of the data under the hypothesis.
+\item \textbf{Normalizing constant} or $P(D)$ is the probability of data under any hypothesis.
+\end{enumerate}
 
+Hence, our core of the Bayesian statistics can be interpreted as:
+\begin{equation} \label{eq3}
+P(Posterior) = \frac{P(Prior)P(Likelihood)}{P(Normalizing-constant)}
+\end{equation}
+
+For a set of hypotheses, it is necessary that the hypothesis are:
+\begin{enumerate}
+\item \textbf{Mutually exclusive}: Only one shall be true.
+\item \textbf{Collectively exhaustive}: At one shall be true. No other possibilities can exist.
+\end{enumerate}
+
+Using the law of total probabilities, the probability of data for two given hypothesis $H1$ and $H2$ are:
+\begin{equation} \label{eq3}
+P(D) = P(H1)P(D|H1) + P(H2)P(D|H2)
+\end{equation}
+
+\section{Procedure}
+
+\subsection{A/A Testing}
+A/A testing is the strategy of utilizing A/B testing to test two indistinguishable renditions of a page against each other. Ordinarily, this is done to watch that the apparatus being utilized to run the trial is measurably reasonable. In A/A test, the apparatus should report no distinction in transformations between the control and variety, if the test is executed accurately. 
+
+Why might you need to run a test where the variety and unique are indistinguishable? 
+
+Now and again, you might need to utilize this to screen the quantity of transformations on the page where you are running the A/A test to track the quantity of changes and decide the pattern change rate before starting an A/B or multivariate test. 
+
+In most different cases, the A/A test is a technique for twofold checking the viability and precision of the A/B testing programming. You should hope to check whether the product reports that there is a statistically significant (>95\%) distinction between the control and variety. In the event that the product reports that there is a measurably huge distinction, that is an issue, and the product would need to be watched for accurate execution on the site or portable application.
+
+\subsection{Define the Prior}
+While starting off, there may or may not be data available in prior to have a prior beta distribution available for further calculations.
+The data could be some data retrieved through observations, known as the \textbf{Likelihood},  as well as some background information on the topic, regarded as the \textbf{Prior Probability}. These two variants in data may or may not be in liaison with each other, which isn't a matter of concern. The task is to model this prior.
+
+Suppose there is a background information regarding conversion rates for an action on a web page as $x\%$. Hence, the prior probability distribution will be formed with respect to the Beta function (\ref{Betaeq}), as $Beta(\alpha,\beta)$ where 
+\begin{enumerate}
+    \item $\alpha$ is the number of users that added up to the conversion rates,
+    \item $\beta$ is the number of users that didn't contribute to conversion rates, and
+    \item $\alpha + \beta$ is equivalent to the total number of users on whom the A/B testing has been analysed.
+\end{enumerate}
+
+On plotting the various discrete data obtained overtime, it is noticed that the lower the sum of $\alpha$ and $\beta$, that is, number of users, the wider the Beta probability distribution is modeled.
+
+We can calculate the \textbf{Posterior Distribution} as
+\begin{equation} \label{Posterior}
+Beta(\alpha_{posterior},\beta_{posterior}) = Beta(\alpha_{likelihood}+\alpha_{prior},\beta_{likelihood}+\beta_{prior})
+\end{equation}
+
+\subsection{Gather and Study the Website Data}
+Your investigation will frequently give knowledge into where you can start upgrading. It starts with high activity territories (where traffic is in excess) of your site or application, as that will enable you to accumulate information speedier. Search for pages with low change rates or high drop-off rates that can be progressed.
+
+\subsection{Observe User Behaviour}
+Study the web pages with high as well as low bounce rates via visitor behavior analysis tools such as Form Analysis, On-page Surveys, Heatmaps, and Visitor Recordings to find the loopholes which are preventing the conversion rates from increasing.  
+
+\subsection{Distinguish and Examine Goals}
+Your transformation objectives are the measurements that you are utilising to decide if the variety is more effective than the first form. Objectives need not be specific, ranging from, clicking a button or a link to advertisements of items available for purchase on the same or a different eCommerce, and email driven subscription for information exchanges.
+
+\subsection{Produce Hypothesis}
+Once you've recognised an objective, you can start creating A/B testing thoughts and theories for why you think they will be superior to the present form. The rundown of thoughts shall then be organised by expected effect and inconvenience of usage.
+
+\subsection{Make Variations}
+Using your A/B testing programming, roll out the coveted improvements to a component of your site or portable application encounter. Most of the A/B testing tools and services offer editors with rich user-interface that enable the users to adapt changes indicated by the testing results. These alterations would then improve the user-experience and hence aid in transforming this data to increased conversion rates. Changes, talked about, could be as simple as modifying the position or hierarchy of elements on a website, or making a particular div more prominent than the other.
+
+A/B Testing must be regarded as an essential task in setting up brands, especially eCommerce, as they can result in significant improvements in getting increased and returning hits by end users. The expense put into A/B testing shall be regarded as an investment. For instance, charges demanded by an A/B Tester for comparing the most suitable ads to be displayed on a website can be easily recovered in a few Google AdSense and Google AdWords clicks, which ironically would have increased after performing the A/B Testing.\par
+
+\subsection{Run Experiment}
+Kick off your analysis and sit tight for guests to take part! Now, guests to your site or application will be arbitrarily relegated to either the control or variety of your experience. Their cooperation with each experience is measured, tallied, and contrasted with decide how each performs.
+
+\subsection{Investigate Results}
+Once your examination is finished, it's a great opportunity to break down the outcomes. Your A/B testing programming will exhibit the information from the prior beliefs and likelihood to give out posterior probability.
+For both A and B variants, there will be a certain conversion rate derived overtime of constant collection of data. This when plotted using the Beta normal function, will pictorially represent the variance between the two hypothesis. Initially, the two Beta distributions might look the same. But, over time there will be a significant difference observed. This would exhibit the variant which is more likely to get the client more conversion rates.
+
+\subsection{Monte Carlo Simulations}
+Monte Carlo simulations are a great way to bridge the gab between the A/B testing by deterining the amount by which a variant, say B, is better than the other variant, say A. These simulations were carried out in the R function.
+
+In this $n$ number of trials are taken with both A and B variants having it's own prior. The samples of both variants are calculated as a beta functions of the posterior probability of the two variants (\ref{Posterior}).
+Then the normalised value of the two samples is generated on dividing the sum of the Beta functions of posterior probabilities of sample A and B by the $n$ number of trials. This as a result gives the actual amount by which one variant (here, B) is greater than the other (here, A).
+
+Hence, the Bayesian A/B testing has been successfully been carried out.

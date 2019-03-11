@@ -1,0 +1,82 @@
+\documentclass [12pt, a4paper, oneside]{report}
+\usepackage {graphicx}
+\usepackage[top=2.5cm, bottom=2.5cm, left=3cm, right=3cm]{geometry}
+\usepackage{setspace}
+\usepackage[T1]{fontenc}
+\usepackage{mathptmx}
+\usepackage{amsmath}
+\usepackage{epigraph}
+\usepackage{url}
+\usepackage{longtable}
+\usepackage{fancyhdr}
+\usepackage[toc,page]{appendix}
+\newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
+
+\makeatletter
+\newcommand\ackname{Acknowledgements}
+\if@titlepage
+  \newenvironment{acknowledgements}{%
+      \titlepage
+      \null\vfil
+      \@beginparpenalty\@lowpenalty
+      \begin{center}%
+        \bfseries \ackname
+        \@endparpenalty\@M
+      \end{center}}%
+     {\par\vfil\null\endtitlepage}
+\else
+  \newenvironment{acknowledgements}{%
+      \if@twocolumn
+        \section*{\abstractname}%
+      \else
+        \small
+        \begin{center}%
+          {\bfseries \ackname\vspace{-.5em}\vspace{\z@}}%
+        \end{center}%
+        \quotation
+      \fi}
+      {\if@twocolumn\else\endquotation\fi}
+\fi
+\makeatother
+
+\makeatletter
+\newcommand\certname{Certificate}
+\if@titlepage
+  \newenvironment{certificate}{%
+      \titlepage
+      \null\vfil
+      \@beginparpenalty\@lowpenalty
+      \begin{center}%
+        \bfseries \certname
+        \@endparpenalty\@M
+      \end{center}}%
+     {\par\vfil\null\endtitlepage}
+\else
+  \newenvironment{certificate}{%
+      \if@twocolumn
+        \section*{\abstractname}%
+      \else
+        \small
+        \begin{center}%
+          {\bfseries \certname\vspace{-.5em}\vspace{\z@}}%
+        \end{center}%
+        \quotation
+      \fi}
+      {\if@twocolumn\else\endquotation\fi}
+\fi
+\makeatother
+
+\begin{document}
+\onehalfspace
+\setlength{\parindent}{0pt}
+\input{./title/titlepage.tex}
+\input{./acknowledgement.tex}
+\input{./abstract.tex}
+\tableofcontents
+\input{./introduction.tex}
+\input{./developmentTools.tex}
+\input{./resultsAndDiscussion.tex}
+\input{./futureScope.tex}
+\input{./appendices.tex}
+\input{./references.tex}
+\end{document}
